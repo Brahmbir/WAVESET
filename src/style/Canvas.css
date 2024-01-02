@@ -1,0 +1,41 @@
+.canvas {
+  display: flex;
+  margin-inline: auto;
+  justify-content: center;
+  align-items: center;
+  width: 70vmin;
+  height: 70vmin;
+}
+.canvas div {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.canvas div::before {
+  content: " ";
+  width: calc(120%);
+  height: calc(120%);
+  top: -10%;
+  left: -10%;
+  z-index: 10;
+  position: absolute;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  clip-path: polygon(
+    0% 0%,
+    0% 100%,
+    /* * change it also */ 8.75% 100%,
+    /* * inner top left */ 8.75% 8.75%,
+    /* * inner top right */ 91.5% 8.75%,
+    /* * inner bottom right */ 91.5% 91.5%,
+    /* * inner bottom left */ 8.75% 91.5%,
+    /* * change it also */ 8.75% 100%,
+    100% 100%,
+    100% 0
+  );
+}
+
+.canvas canvas {
+  width: 100% !important;
+  height: 100% !important;
+}

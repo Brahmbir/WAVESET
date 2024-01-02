@@ -1,0 +1,101 @@
+.menu {
+  --widthM: max(30vw, 400px);
+  --padding: 15px;
+  z-index: 10000;
+  position: absolute;
+  inset-block: 0px;
+  inset-inline: 100% auto;
+  height: calc(100vh - 2 * var(--padding));
+  background-color: rgb(105, 101, 96);
+  transition: all 0.4s;
+  width: calc(var(--widthM) - 2 * var(--padding));
+  padding: var(--padding);
+  transform: translate(-100%);
+}
+.menu[data-show="false"] {
+  transform: translate(0%);
+}
+.menuExpander {
+  user-select: none;
+  outline: none;
+  border: none;
+  border-radius: 0px 0px 5px 5px;
+  z-index: 50;
+  height: 30px;
+  position: absolute;
+  inset-block: 15% auto;
+  width: 100px;
+  transform: translate(calc(-50% - 14.5px - var(--padding)), -50%)
+    rotateZ(90deg);
+}
+.settings {
+  width: 100%;
+  height: calc(100% - 8vh);
+  margin-block: 4vh;
+  display: flex;
+  flex-direction: column;
+  gap: 3vh;
+}
+.dimension {
+  display: flex;
+  width: 100%;
+  padding-block: 2.5px;
+  background-color: rgb(70, 70, 70);
+  border-radius: 5px;
+}
+.dimension fieldset {
+  display: flex;
+  width: 100%;
+  gap: 15px;
+  padding-block: 10px 15px;
+  border: 0;
+}
+.dimension fieldset input {
+  width: 100%;
+}
+.dimension fieldset input:nth-of-type(2) {
+  width: 30%;
+}
+.tileSection {
+  --tileSectionColor: rgb(58, 57, 57);
+  position: relative;
+  width: calc(var(--widthM) - 2 * var(--padding));
+  height: 100%;
+  border-radius: 10px;
+  background-color: var(--tileSectionColor);
+  display: flex;
+  overflow: hidden;
+}
+.tileSection::after,
+.tileSection::before {
+  position: absolute;
+  inset-inline: 0px;
+  width: 100%;
+  height: 15px;
+  content: "";
+  backdrop-filter: blur(1px);
+}
+.tileSection::after {
+  border-radius: 10px;
+  background: linear-gradient(#00000000, var(--tileSectionColor));
+  bottom: 0px;
+}
+.tileSection::before {
+  background: linear-gradient(var(--tileSectionColor), #00000000);
+  top: 0px;
+}
+.tileCon {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  overflow-y: scroll;
+}
+.tileCon::-webkit-scrollbar {
+  width: 0px;
+}
+.tbutton {
+  width: calc(var(--widthM) - 4 * var(--padding));
+  height: 50px !important;
+  margin-inline: var(--padding);
+  margin-bottom: var(--padding);
+}
